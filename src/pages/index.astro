@@ -1,16 +1,15 @@
 ---
-
+import MainLayout from "../components/MainLayout.astro"
+import HeroSection from "../components/HeroSection.astro"
+import VerticalSlider from "../components/VerticalSlider.astro"
+import HorizontalSlider from "../components/HorizontalSlider.astro"
+import QnA from "../components/QnA.astro"
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout>
+	<HeroSection/>
+	<VerticalSlider/>
+	<HorizontalSlider/>
+	<HorizontalSlider/>
+	<VerticalSlider/>
+	<QnA/>
+</MainLayout>
