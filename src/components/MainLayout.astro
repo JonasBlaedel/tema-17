@@ -1,24 +1,26 @@
 ---
-import HeaderMenu from "./HeaderMenu.astro"
+import HeaderMenu from "./HeaderMenu.astro";
 import Footer from "./Footer.astro";
+import "../style.css";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />		<title>Tumletid</title>
-	</head>
-	<body>
-        <header>
-            <HeaderMenu />
-        </header>
-        <main>
-			<slot />
-		</main>
-        <footer>
-			<Footer/>
-		</footer>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Tumletid</title>
+  </head>
+  <body>
+    <header>
+      <HeaderMenu />
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <Footer />
+    </footer>
+  </body>
 </html>

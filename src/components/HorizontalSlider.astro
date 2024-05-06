@@ -1,0 +1,128 @@
+---
+import "../style.css";
+
+const url = "https://bxkrncwullyblgqmyhzx.supabase.co/rest/v1/horizontal";
+
+const options = {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ4a3JuY3d1bGx5YmxncW15aHp4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ5ODQ1NzcsImV4cCI6MjAzMDU2MDU3N30.Rwwc-O88qXvYTF_AYVkxvJ-Fy1-sT0oalGR576_EPaI",
+  },
+};
+
+const response = await fetch(url, options);
+const data = await response.json();
+
+const { header, subheader, filter, background, justify, gap } = Astro.props;
+---
+
+<section class="sectionContainer">
+  <div class="heading-slider">
+    <p>{subheader}</p>
+    <h2>{header}</h2>
+  </div>
+  <section class="horizontal-slider-container">
+    <div class=`horizontal-slider ${justify}`>
+      {
+        data.map((product) => {
+          if (product.type === `${filter}`) {
+            return (
+              <a href="" class="slider-item">
+                <img src={`/img/${product.img}`} alt={product.title} />
+                <div class={`${background} ${gap}`}>
+                  <p class="product_title">{product.title}</p>
+                  <p class="product_subtitle">{product.subtitle}</p>
+                </div>
+              </a>
+            );
+          }
+        })
+      }
+    </div>
+  </section>
+</section>
+
+<style>
+  .sectionContainer {
+    margin-inline: var(--magn);
+    margin-bottom: var(--l-spacing);
+  }
+
+  .horizontal-slider-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .horizontal-slider {
+    display: flex;
+    gap: var(--s-spacing);
+  }
+
+  .slider-item {
+    flex-shrink: 0;
+    width: calc(65% - (var(--s-spacing) * 2));
+    /* max-width: 280px; Optionally set a max-width to prevent images from scaling too large */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .heading-slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    margin-bottom: var(--m-spacing);
+    text-transform: uppercase;
+  }
+
+  .heading-slider p {
+    color: var(--p-blue);
+  }
+
+  .gap {
+    padding-top: var(--s-spacing) !important;
+  }
+
+  .blue {
+    background-color: var(--p-blue);
+    color: var(--p-white);
+    font-size: var(--p-small-font-size);
+    padding: var(--s-spacing);
+  }
+  .product_subtitle {
+    opacity: 0.7;
+    font-family: var(--subheading-font);
+  }
+  .product_title {
+    text-transform: uppercase;
+  }
+  @media screen and (min-width: 800px) {
+    .slider-item {
+      width: calc(30% - (var(--xs-spacing) * 2));
+    }
+
+    .sectionContainer {
+      margin-inline: var(--desk-magn);
+      margin-bottom: var(--xl-spacing);
+    }
+
+    .heading-slider {
+      align-items: center;
+    }
+  }
+  /* @media screen and (max-width: 768px) {
+    .slider-item {
+      width: calc(45% - (var(--m-spacing) * 2)); /* Adjust for smaller screens 
+    }
+  }
+  /* @media screen and (max-width: 768px) {
+    .slider-item {
+      width: calc(45% - (var(--m-spacing) * 2)); /* Adjust for smaller screens 
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .slider-item {
+      width: calc(90% - (var(--m-spacing) * 2)); /* Adjust for even smaller screens 
+    }
+  } */
+</style>

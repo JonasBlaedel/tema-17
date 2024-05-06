@@ -1,0 +1,154 @@
+/* CSS RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  font: inherit;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+a,
+ul {
+  list-style: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  min-height: 100vh;
+  /* display: grid;
+  grid-template-rows: auto 1fr auto; */
+}
+
+/*FONTS*/
+@font-face {
+  font-family: BrandonGrotesque;
+  src: url(../public/fonts/BrandonGrotesque-Black.woff2);
+}
+@font-face {
+  font-family: GilroyLight;
+  src: url(../public/fonts/GilroyLight.woff2);
+}
+@font-face {
+  font-family: GilroyMedium;
+  src: url(../public/fonts/GilroyMedium.woff2);
+}
+
+/*ROOT*/
+
+:root {
+  --p-green: #007249;
+  --p-orange: #d1490d;
+  --p-blue: #024fbf;
+  --p-white: #fdfdfd;
+  --p-black: #111111;
+
+  --s-bright-yellow: #f4dc78;
+  --s-yellow: #ffca00;
+  --s-orange: #d88000;
+  --s-purple: #c4b4d7;
+  --s-bright-blue: #80a7e0;
+  --s-pink: #af2965;
+  --s-green: #afb53b;
+  --s-blue: #00444f;
+  --s-baige: #f9f2e1;
+
+  --xs-spacing: 0.5rem;
+  --s-spacing: 1rem;
+  --m-spacing: 1.5rem;
+  --l-spacing: 2rem;
+  --xl-spacing: 3.75rem;
+  --magn: 1rem;
+  --desk-magn: 2rem;
+
+  --h1-font-size: clamp(2rem, 1.6364rem + 1.4545vw, 3rem);
+  --h2-font-size: clamp(1.5rem, 1.3182rem + 0.7273vw, 2rem);
+  --h3-font-size: clamp(1.25rem, 1.0682rem + 0.7273vw, 1.75rem);
+  --h4-font-size: clamp(1rem, 0.8182rem + 0.7273vw, 1.5rem);
+  --p-font-size: clamp(0.875rem, 0.7841rem + 0.3636vw, 1.125rem);
+  --p-small-font-size: clamp(0.7rem, 0.62728rem + 0.29088vw, 0.9rem);
+
+  --heading-font: BrandonGrotesque;
+  --subheading-font: GilroyLight;
+  --body-font: GilroyMedium;
+}
+
+/*TYPOGRAPHY*/
+
+h1 {
+  font-family: var(--heading-font);
+  font-size: var(--h1-font-size);
+}
+
+h2 {
+  font-family: var(--heading-font);
+  font-size: var(--h2-font-size);
+}
+
+h3 {
+  font-family: var(--heading-font);
+  font-size: var(--h3-font-size);
+}
+
+h4 {
+  font-family: var(--subheading-font);
+  font-size: var(--h4-font-size);
+}
+
+p {
+  font-family: var(--body-font);
+  font-size: var(--p-font-size);
+  line-height: 1.6;
+  max-width: 70ch;
+}
+
+a {
+  font-family: var(--body-font);
+  font-size: var(--p-font-size);
+  padding-bottom: 4px;
+}

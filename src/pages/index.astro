@@ -1,15 +1,16 @@
 ---
-import MainLayout from "../components/MainLayout.astro"
-import HeroSection from "../components/HeroSection.astro"
-import VerticalSlider from "../components/VerticalSlider.astro"
-import HorizontalSlider from "../components/HorizontalSlider.astro"
-import QnA from "../components/QnA.astro"
+import MainLayout from "../components/MainLayout.astro";
+import HeroSection from "../components/HeroSection.astro";
+import VerticalSlider from "../components/VerticalSlider.astro";
+import HorizontalSlider from "../components/HorizontalSlider.astro";
+import QnA from "../components/QnA.astro";
 ---
+
 <MainLayout>
-	<HeroSection/>
-	<VerticalSlider/>
-	<HorizontalSlider/>
-	<HorizontalSlider/>
-	<VerticalSlider/>
-	<QnA/>
+  <HeroSection />
+  <VerticalSlider />
+  <HorizontalSlider header="Hvad får du i din goodiebag?" subheader="Goodiebag" filter="goodie" background="blue" justify="center" />
+  <HorizontalSlider header="Produkter vi leger med til Tumletid" subheader="Tumlemøbler" filter="product" gap="gap" />
+  <VerticalSlider />
+  <QnA />
 </MainLayout>
