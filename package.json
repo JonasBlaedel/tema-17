@@ -10,8 +10,14 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/react": "^3.3.2",
+    "@supabase/supabase-js": "^2.43.1",
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
     "astro": "^4.7.0",
-    "prettier-plugin-astro": "^0.13.0"
+    "prettier-plugin-astro": "^0.13.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "prettier": "^3.2.5"

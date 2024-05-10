@@ -68,15 +68,15 @@ body {
 /*FONTS*/
 @font-face {
   font-family: BrandonGrotesque;
-  src: url(../public/fonts/BrandonGrotesque-Black.woff2);
+  src: url(/fonts/BrandonGrotesque-Black.woff2);
 }
 @font-face {
   font-family: GilroyLight;
-  src: url(../public/fonts/GilroyLight.woff2);
+  src: url(/fonts/GilroyLight.woff2);
 }
 @font-face {
   font-family: GilroyMedium;
-  src: url(../public/fonts/GilroyMedium.woff2);
+  src: url(/fonts/GilroyMedium.woff2);
 }
 
 /*ROOT*/
@@ -112,6 +112,7 @@ body {
   --h4-font-size: clamp(1rem, 0.8182rem + 0.7273vw, 1.5rem);
   --p-font-size: clamp(0.875rem, 0.7841rem + 0.3636vw, 1.125rem);
   --p-small-font-size: clamp(0.7rem, 0.62728rem + 0.29088vw, 0.9rem);
+  --p-large-font-size: clamp(0.95rem, 0.8182rem + 0.60088vw, 1.3rem);
 
   --heading-font: BrandonGrotesque;
   --subheading-font: GilroyLight;
@@ -151,4 +152,111 @@ a {
   font-family: var(--body-font);
   font-size: var(--p-font-size);
   padding-bottom: 4px;
+}
+
+.p-large {
+  font-size: var(--p-large-font-size);
+}
+
+.p-small {
+  font-size: var(--p-small-font-size);
+  font-family: var(--subheading-font);
+}
+
+/*TICKETS*/
+.tickets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--l-spacing);
+  padding: var(--magn);
+  margin: auto;
+  max-width: 1200px;
+}
+
+.ticket {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  width: 100%;
+  gap: var(--m-spacing);
+}
+
+.ticket p {
+  color: var(--p-green);
+  text-transform: uppercase;
+}
+.ticket button {
+  color: var(--p-green);
+  font-size: var(--p-small-font-size);
+  border: 1px solid var(--p-green);
+}
+
+.ticket button:hover {
+  color: var(--p-white);
+  background-color: var(--p-green);
+  border: 1px solid var(--p-white);
+}
+
+.ticketsDevide {
+  border-top: solid 2px var(--p-green);
+}
+
+@media screen and (min-width: 800px) {
+  .tickets {
+    padding: var(--desk-magn);
+  }
+  .ticket button {
+    font-size: var(--p-font-size);
+  }
+  .ticket {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: var(--s-spacing);
+  }
+}
+/*ALL BUTTONS Styling*/
+
+.button {
+  text-transform: uppercase;
+  background-color: transparent;
+  height: fit-content;
+  padding: var(--xs-spacing) var(--s-spacing);
+  font-family: var(--body-font);
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--m-spacing);
+}
+
+.buttons .button {
+  border: 1px solid var(--p-green);
+  font-size: var(--p-small-font-size);
+  color: var(--p-green);
+}
+
+.buttons .button.active {
+  background-color: var(--p-green);
+  color: var(--p-white);
+}
+
+.transparent {
+  background-color: transparent;
+}
+
+.buttons .button:not(.active):hover {
+  background-color: rgba(0, 114, 73, 0.3);
+}
+
+@media screen and (min-width: 800px) {
+  .button {
+    padding: var(--s-spacing) var(--m-spacing);
+  }
+  .buttons .button {
+    border: 1px solid var(--p-green);
+    font-size: var(--p-font-size);
+  }
 }
