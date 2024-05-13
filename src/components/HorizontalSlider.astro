@@ -60,7 +60,6 @@ const { header, subheader, filter, background, justify, gap } = Astro.props;
   .slider-item {
     flex-shrink: 0;
     width: calc(65% - (var(--s-spacing) * 2));
-    /* max-width: 280px; Optionally set a max-width to prevent images from scaling too large */
     display: flex;
     flex-direction: column;
   }
@@ -109,20 +108,4 @@ const { header, subheader, filter, background, justify, gap } = Astro.props;
       align-items: center;
     }
   }
-  /* @media screen and (max-width: 768px) {
-    .slider-item {
-      width: calc(45% - (var(--m-spacing) * 2)); /* Adjust for smaller screens 
-    }
-  }
-  /* @media screen and (max-width: 768px) {
-    .slider-item {
-      width: calc(45% - (var(--m-spacing) * 2)); /* Adjust for smaller screens 
-    }
-  }
-
-  @media screen and (max-width: 576px) {
-    .slider-item {
-      width: calc(90% - (var(--m-spacing) * 2)); /* Adjust for even smaller screens 
-    }
-  } */
 </style>

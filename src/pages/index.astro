@@ -4,15 +4,14 @@ import HeroSection from "../components/HeroSection.astro";
 import VerticalSlider from "../components/VerticalSlider.astro";
 import HorizontalSlider from "../components/HorizontalSlider.astro";
 import QnA from "../components/QnA.astro";
-import Events from "../components/Events.jsx";
 import Tickets from "../components/Tickets.astro";
 ---
 
 <MainLayout>
   <HeroSection />
-  <VerticalSlider />
+  <VerticalSlider header="Hvad er Tumletid?" subheader="Tumletid" />
   <HorizontalSlider header="Hvad får du i din goodiebag?" subheader="Goodiebag" filter="goodie" background="blue" justify="center" />
   <HorizontalSlider header="Produkter vi leger med til Tumletid" subheader="Tumlemøbler" filter="product" gap="gap" />
-  <QnA />
   <Tickets header="Køb billet til en tumletid for dig & dit barn" subheader="Tumletidsbilletter" />
+  <QnA header="Ofte stillede spørgsmål" subheader="FAQ" />
 </MainLayout>

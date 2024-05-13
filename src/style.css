@@ -124,28 +124,40 @@ body {
 h1 {
   font-family: var(--heading-font);
   font-size: var(--h1-font-size);
+  letter-spacing: 0.1rem;
 }
 
 h2 {
   font-family: var(--heading-font);
   font-size: var(--h2-font-size);
+  letter-spacing: 0.1rem;
 }
 
 h3 {
   font-family: var(--heading-font);
   font-size: var(--h3-font-size);
+  letter-spacing: 0.1rem;
 }
 
 h4 {
   font-family: var(--subheading-font);
   font-size: var(--h4-font-size);
+  letter-spacing: 0.1rem;
 }
 
 p {
   font-family: var(--body-font);
   font-size: var(--p-font-size);
+  letter-spacing: 0.1rem;
   line-height: 1.6;
   max-width: 70ch;
+}
+.p {
+  font-family: var(--body-font);
+  font-size: var(--p-font-size);
+  letter-spacing: 0.1rem;
+
+  line-height: 1.6;
 }
 
 a {
@@ -241,6 +253,7 @@ a {
 .buttons .button.active {
   background-color: var(--p-green);
   color: var(--p-white);
+  cursor: auto;
 }
 
 .transparent {
@@ -259,4 +272,24 @@ a {
     border: 1px solid var(--p-green);
     font-size: var(--p-font-size);
   }
+}
+
+/* Style for accordion items */
+.accordion-item {
+  border: 1px solid rgba(22, 22, 22, 0.2);
+  margin-bottom: var(--xs-spacing);
+}
+.accordion-header {
+  padding: var(--s-spacing);
+  display: flex;
+  justify-content: space-between;
+
+  cursor: pointer;
+}
+.accordion-content {
+  display: none;
+}
+.accordion-item.active .accordion-content {
+  display: block;
+  padding: var(--s-spacing);
 }

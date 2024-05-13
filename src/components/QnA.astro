@@ -1,0 +1,58 @@
+---
+import "../style.css";
+import Accordion from "../components/Accordion";
+
+const url = "https://bxkrncwullyblgqmyhzx.supabase.co/rest/v1/qna";
+
+const options = {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ4a3JuY3d1bGx5YmxncW15aHp4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ5ODQ1NzcsImV4cCI6MjAzMDU2MDU3N30.Rwwc-O88qXvYTF_AYVkxvJ-Fy1-sT0oalGR576_EPaI",
+  },
+};
+
+const response = await fetch(url, options);
+const accordionItems = await response.json();
+
+const { header, subheader } = Astro.props;
+---
+
+<section class="accordion_container">
+  <div class="heading">
+    <p>{subheader}</p>
+    <h2>{header}</h2>
+  </div>
+  <Accordion items={accordionItems} client:load />
+</section>
+
+<style>
+  .accordion_container {
+    margin-bottom: var(--xl-spacing);
+    padding: var(--magn);
+    margin: auto;
+    max-width: 1200px;
+  }
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    margin-bottom: var(--m-spacing);
+    text-transform: uppercase;
+    padding-inline: var(--magn);
+  }
+
+  .heading p {
+    color: var(--p-blue);
+  }
+
+  @media screen and (min-width: 800px) {
+    .accordion_container {
+      padding: var(--desk-magn);
+    }
+    .heading {
+      align-items: center;
+      padding-inline: var(--desk-magn);
+    }
+  }
+</style>

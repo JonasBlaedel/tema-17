@@ -1,0 +1,118 @@
+---
+import "../style.css";
+
+const url = "https://bxkrncwullyblgqmyhzx.supabase.co/rest/v1/vertical";
+
+const options = {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ4a3JuY3d1bGx5YmxncW15aHp4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ5ODQ1NzcsImV4cCI6MjAzMDU2MDU3N30.Rwwc-O88qXvYTF_AYVkxvJ-Fy1-sT0oalGR576_EPaI",
+  },
+};
+
+const response = await fetch(url, options);
+const data = await response.json();
+
+const { header, subheader } = Astro.props;
+---
+
+<section id="vertical_container">
+  <div id="vertical_left">
+    <div id="heading">
+      <p id="subheading">{subheader}</p>
+      <h2>{header}</h2>
+    </div>
+    <p class="info">Kom og deltag i en sjov session med din baby (0-12 måneder).</p>
+
+    <p class="info">
+      Opdag, hvordan du kan støtte din babys udvikling af motorik. Vi vil introducere motorisk leg ved hjælp af bObles tumlemøbler og guide dig gennem konkrete øvelser, der fremmer din babys motoriske færdigheder i løbet af det første år.
+    </p>
+
+    <p class="info">
+      Sammen vil vi udforske legende aktiviteter, der ikke kun stimulerer, men også udfordrer din babys motoriske færdigheder. Vi vil ligge, rulle, kravle, stå, gå og balancere, alt sammen med det formål at skabe en glad og sund krop.
+    </p>
+
+    <p class="info">
+      Vi tror på betydningen af leg i en babys udvikling, og vores sessioner er designet til at skabe en legende atmosfære, hvor læring og sjov går hånd i hånd. Fra tummy time til at styrke rygmusklerne til at støtte de første skridt, vil vores
+      program være en kilde til glæde og vækst for både dig og din lille en.
+    </p>
+  </div>
+  <div id="vertical_right">
+    <div id="image_slider">
+      {data.map((ttimg) => <img src={`/img/${ttimg.img}`} alt={ttimg.alt} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  #vertical_container {
+    margin-inline: var(--magn);
+    margin-bottom: var(--xl-spacing);
+  }
+
+  #vertical_left {
+    margin-bottom: var(--l-spacing);
+  }
+
+  #vertical_left p:not(#subheading) {
+    margin-bottom: var(--s-spacing);
+  }
+
+  #image_slider {
+    width: 100%;
+    overflow-x: auto;
+    display: flex;
+    gap: var(--s-spacing);
+  }
+
+  #image_slider img {
+    flex-shrink: 0;
+    width: calc(65% - (var(--s-spacing) * 2));
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+  }
+
+  #heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    margin-bottom: var(--m-spacing);
+    text-transform: uppercase;
+  }
+
+  #heading p {
+    color: var(--p-blue);
+  }
+
+  @media screen and (min-width: 800px) {
+    #vertical_container {
+      margin-inline: var(--desk-magn);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--m-spacing);
+    }
+
+    #vertical_left {
+      padding: var(--xl-spacing);
+    }
+
+    #vertical_right {
+      position: relative;
+    }
+    #image_slider {
+      position: absolute;
+      overflow-y: auto;
+      flex-direction: column;
+      width: fit-content;
+      height: 100%;
+    }
+
+    #image_slider img {
+      flex-shrink: 0;
+      width: 100%;
+      aspect-ratio: initial;
+    }
+  }
+</style>
