@@ -1,0 +1,123 @@
+---
+import "../../style.css";
+import MainLayout from "../../components/MainLayout.astro";
+import Time from "../../components/Time.jsx";
+
+export async function getStaticPaths() {
+  const url = "https://bxkrncwullyblgqmyhzx.supabase.co/rest/v1/tickets";
+
+  const options = {
+    headers: {
+      apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ4a3JuY3d1bGx5YmxncW15aHp4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQ5ODQ1NzcsImV4cCI6MjAzMDU2MDU3N30.Rwwc-O88qXvYTF_AYVkxvJ-Fy1-sT0oalGR576_EPaI",
+    },
+  };
+
+  const response = await fetch(url, options);
+  const data = await response.json();
+
+  return data.map((product) => ({
+    params: { slug: product.id },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+---
+
+<MainLayout>
+  <section class="productContainer">
+    <div class="productInfo">
+      <img src="/img/product.webp" alt="" />
+      <div class="form">
+        <div class="title">
+          <h2>bObles Tumletid</h2>
+          <h2>{`${product.date}. ${product.month}`}</h2>
+        </div>
+        <div class="location">
+          <h3>{product.city}</h3>
+          <div class="store">
+            <p>{product.store}</p>
+            <p>{product.address}</p>
+            <p>{product.city}</p>
+          </div>
+          <p>Vælg tidspunkt:</p>
+          <Time client:load />
+          <button class="button buy">Køb nu</button>
+        </div>
+      </div>
+    </div>
+    <div class="info">
+      <p>Bliv guidet igennem 1 times sjov tumlesession på bObles’ børnevenlige tumlemøbler og lær om designet og de mange funktioner.</p>
+
+      <p>
+        Sammen leger vi os til en bedre forståelse for, hvordan vi kan stimulere og udfordre vores børns motorik. Vi ruller, kravler, står, går, hopper, samt balancerer os til en glad krop. Du får også mulighed for at stille lige de spørgsmål om
+        bObles, som du har lyst til, til vores dygtige elefantfører.
+      </p>
+
+      <p>Tilmelding er først til mølle. Pris: 299 kr. Med i prisen er en goodiebag inkl. bObles boldsæt, 1 Bibs sut, Derma Diaper Change lotion og Sebra kop og skål (i alt værdi 500,-)</p>
+    </div>
+  </section>
+</MainLayout>
+
+<style>
+  .form {
+    margin-inline: var(--magn);
+  }
+  img {
+    margin-bottom: var(--m-spacing);
+  }
+
+  .title {
+    text-transform: uppercase;
+    margin-bottom: var(--s-spacing);
+  }
+
+  .location h3 {
+    margin-bottom: var(--xs-spacing);
+  }
+
+  .store {
+    margin-bottom: var(--s-spacing);
+  }
+
+  .info {
+    margin: var(--magn);
+  }
+  .info p {
+    margin-bottom: var(--s-spacing);
+  }
+
+  .buy {
+    width: 100%;
+    border: 1px solid var(--p-green);
+    color: var(--p-green);
+    margin-bottom: var(--xs-spacing);
+  }
+
+  @media (min-width: 800px) {
+    .productContainer {
+      display: flex;
+      flex-direction: column;
+      gap: var(--l-spacing);
+      padding: var(--magn);
+      margin: auto;
+      max-width: 1200px;
+    }
+
+    .productInfo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--xl-spacing);
+      align-items: center;
+    }
+
+    img {
+      max-height: 450px;
+    }
+
+    .info {
+      margin: auto;
+      padding: var(--desk-magn);
+    }
+  }
+</style>

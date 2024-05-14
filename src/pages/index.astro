@@ -5,13 +5,15 @@ import VerticalSlider from "../components/VerticalSlider.astro";
 import HorizontalSlider from "../components/HorizontalSlider.astro";
 import QnA from "../components/QnA.astro";
 import Tickets from "../components/Tickets.astro";
+import Sponsers from "../components/Sponsers.astro";
 ---
 
 <MainLayout>
-  <HeroSection />
+  <HeroSection header="Tumletid" subheader="Motorisk inspiration til dig og din baby" />
   <VerticalSlider header="Hvad er Tumletid?" subheader="Tumletid" />
   <HorizontalSlider header="Hvad får du i din goodiebag?" subheader="Goodiebag" filter="goodie" background="blue" justify="center" />
   <HorizontalSlider header="Produkter vi leger med til Tumletid" subheader="Tumlemøbler" filter="product" gap="gap" />
   <Tickets header="Køb billet til en tumletid for dig & dit barn" subheader="Tumletidsbilletter" />
+  <Sponsers header="Dem, vi arbejder sammen med" subheader="Samarbejdspartnere" />
   <QnA header="Ofte stillede spørgsmål" subheader="FAQ" />
 </MainLayout>

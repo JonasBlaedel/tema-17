@@ -1,0 +1,58 @@
+---
+import "../style.css";
+const { header, subheader } = Astro.props;
+---
+
+<section class="sponsor_container">
+  <div class="heading">
+    <p>{subheader}</p>
+    <h2>{header}</h2>
+  </div>
+  <div class="sponsers">
+    <img src="/img/sebra.png" alt="sebra" />
+    <img src="/img/sebra.png" alt="sebra" />
+    <img src="/img/sebra.png" alt="sebra" />
+    <img src="/img/sebra.png" alt="sebra" />
+    <img src="/img/sebra.png" alt="sebra" />
+    <img src="/img/sebra.png" alt="sebra" />
+  </div>
+</section>
+
+<style>
+  .sponsor_container {
+    margin-bottom: var(--xl-spacing);
+    padding: var(--magn);
+    margin: auto;
+    max-width: 1200px;
+  }
+
+  .sponsers {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--m-spacing);
+  }
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    margin-bottom: var(--m-spacing);
+    text-transform: uppercase;
+    padding-inline: var(--magn);
+  }
+
+  .heading p {
+    color: var(--p-blue);
+  }
+
+  @media screen and (min-width: 800px) {
+    .sponsor_container {
+      padding: var(--desk-magn);
+    }
+    .heading {
+      align-items: center;
+      padding-inline: var(--desk-magn);
+    }
+  }
+</style>

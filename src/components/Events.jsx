@@ -26,7 +26,9 @@ function Events(props) {
               <p className="p-small">{ticket.store}</p>
               <p className="p-small">{ticket.address}</p>
             </div>
-            <button className="button">Find billetter</button>
+            <a href={`products/${ticket.id}`} className="button">
+              Find billetter
+            </a>
           </div>
         ))}
     </div>

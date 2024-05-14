@@ -129,10 +129,10 @@ import "../style.css";
     gap: var(--l-spacing);
   }
 
-  /* .scrolled-nav {
+  .scrolled-nav {
     background-color: var(--white);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  } */
+  }
 
   @media (min-width: 800px) {
     #myLinks {
@@ -167,14 +167,14 @@ import "../style.css";
 
   btn.addEventListener("click", toggleMenu);
 
-  // window.addEventListener("scroll", function () {
-  //   const topnav = document.querySelector(".navigation");
-  //   const scrolled = window.pageYOffset || document.documentElement.scrollTop;
+  window.addEventListener("scroll", function () {
+    const topnav = document.querySelector(".navigation");
+    const scrolled = window.pageYOffset || document.documentElement.scrollTop;
 
-  //   if (scrolled > 0) {
-  //     topnav.classList.add("scrolled-nav");
-  //   } else {
-  //     topnav.classList.remove("scrolled-nav");
-  //   }
-  // });
+    if (scrolled > 0) {
+      topnav.classList.add("scrolled-nav");
+    } else {
+      topnav.classList.remove("scrolled-nav");
+    }
+  });
 </script>

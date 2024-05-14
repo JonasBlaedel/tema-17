@@ -106,7 +106,7 @@ body {
   --magn: 1rem;
   --desk-magn: 2rem;
 
-  --h1-font-size: clamp(2rem, 1.6364rem + 1.4545vw, 3rem);
+  --h1-font-size: clamp(3rem, 1.6364rem + 1.4545vw, 3rem);
   --h2-font-size: clamp(1.5rem, 1.3182rem + 0.7273vw, 2rem);
   --h3-font-size: clamp(1.25rem, 1.0682rem + 0.7273vw, 1.75rem);
   --h4-font-size: clamp(1rem, 0.8182rem + 0.7273vw, 1.5rem);
@@ -125,6 +125,8 @@ h1 {
   font-family: var(--heading-font);
   font-size: var(--h1-font-size);
   letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--p-white);
 }
 
 h2 {
@@ -134,7 +136,7 @@ h2 {
 }
 
 h3 {
-  font-family: var(--heading-font);
+  font-family: var(--subheading-font);
   font-size: var(--h3-font-size);
   letter-spacing: 0.1rem;
 }
@@ -156,7 +158,6 @@ p {
   font-family: var(--body-font);
   font-size: var(--p-font-size);
   letter-spacing: 0.1rem;
-
   line-height: 1.6;
 }
 
@@ -196,13 +197,14 @@ a {
   color: var(--p-green);
   text-transform: uppercase;
 }
-.ticket button {
+.ticket a {
   color: var(--p-green);
   font-size: var(--p-small-font-size);
   border: 1px solid var(--p-green);
+  text-align: center;
 }
 
-.ticket button:hover {
+.ticket a:hover {
   color: var(--p-white);
   background-color: var(--p-green);
   border: 1px solid var(--p-white);
@@ -216,7 +218,7 @@ a {
   .tickets {
     padding: var(--desk-magn);
   }
-  .ticket button {
+  .ticket a {
     font-size: var(--p-font-size);
   }
   .ticket {
@@ -262,6 +264,32 @@ a {
 
 .buttons .button:not(.active):hover {
   background-color: rgba(0, 114, 73, 0.3);
+}
+
+.time {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-spacing);
+  padding-block: var(--xs-spacing);
+  margin-bottom: var(--s-spacing);
+}
+
+.time .button {
+  font-size: var(--p-small-font-size);
+  border: 1px solid var(--p-green);
+  color: var(--p-green);
+  padding: var(--xs-spacing) var(--s-spacing);
+}
+
+.time .chosen {
+  background-color: var(--p-green);
+  color: var(--p-white);
+}
+
+.time .button:not(.chosen):hover {
+  color: var(--p-green);
+  background-color: rgba(0, 114, 73, 0.3);
+  border: 1px solid var(--p-green);
 }
 
 @media screen and (min-width: 800px) {

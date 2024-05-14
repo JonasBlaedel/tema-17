@@ -1,0 +1,41 @@
+---
+import "../style.css";
+const { header, subheader } = Astro.props;
+---
+
+<section class="heroSection">
+  <img src="/img/tumletid1.jpg" alt="Tumletid Hero billede" />
+  <div class="overlay">
+    <div id="text">
+      <h1>{header}</h1>
+      <p>{subheader}</p>
+    </div>
+
+    <a class="button" href="">Deltag i en Tumletid</a>
+  </div>
+</section>
+
+<style>
+  a.button {
+    border: 2px solid var(--p-white);
+    background-color: rgba(253, 253, 253, 0.5);
+    color: var(--p-black);
+  }
+
+  .heroSection {
+    position: relative;
+    height: 80%;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 75%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+  }
+
+  #text {
+    color: var(--p-white);
+    margin-bottom: var(--l-spacing);
+  }
+</style>
