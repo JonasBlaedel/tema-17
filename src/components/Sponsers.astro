@@ -9,12 +9,13 @@ const { header, subheader } = Astro.props;
     <h2>{header}</h2>
   </div>
   <div class="sponsers">
-    <img src="/img/sebra.png" alt="sebra" />
-    <img src="/img/sebra.png" alt="sebra" />
-    <img src="/img/sebra.png" alt="sebra" />
-    <img src="/img/sebra.png" alt="sebra" />
-    <img src="/img/sebra.png" alt="sebra" />
-    <img src="/img/sebra.png" alt="sebra" />
+    <img src="/img/SEBRA.png" alt="sebra" />
+    <img src="/img/KAEREBORN.png" alt="KÆRE BØRN" />
+    <img src="/img/BABYSAM.png" alt="BABYSAM" />
+    <img src="/img/LUKSUS.png" alt="luksusbaby" />
+    <img src="/img/ONSKEBORN.png" alt="ønskebørn" />
+    <img src="/img/DERMA 2.png" alt="derma" />
+    <img src="/img/BIBS.png" alt="bibs" />
   </div>
 </section>
 
@@ -24,12 +25,16 @@ const { header, subheader } = Astro.props;
     padding: var(--magn);
     margin: auto;
     max-width: 1200px;
+    width: 100%;
   }
 
   .sponsers {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: var(--m-spacing);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--s-spacing);
+  }
+  .sponsers img {
+    width: 100px;
   }
 
   .heading {
@@ -39,7 +44,6 @@ const { header, subheader } = Astro.props;
     align-items: left;
     margin-bottom: var(--m-spacing);
     text-transform: uppercase;
-    padding-inline: var(--magn);
   }
 
   .heading p {
@@ -53,6 +57,12 @@ const { header, subheader } = Astro.props;
     .heading {
       align-items: center;
       padding-inline: var(--desk-magn);
+    }
+    .sponsers {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: var(--xl-spacing);
+      align-items: center;
     }
   }
 </style>

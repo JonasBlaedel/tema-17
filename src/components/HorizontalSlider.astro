@@ -12,10 +12,10 @@ const options = {
 const response = await fetch(url, options);
 const data = await response.json();
 
-const { header, subheader, filter, background, justify, gap } = Astro.props;
+const { header, subheader, filter, background, justify, gap, link } = Astro.props;
 ---
 
-<section class="sectionContainer">
+<section class="sectionContainer" id={link}>
   <div class="heading-slider">
     <p>{subheader}</p>
     <h2>{header}</h2>

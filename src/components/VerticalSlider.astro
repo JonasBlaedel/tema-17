@@ -15,7 +15,7 @@ const data = await response.json();
 const { header, subheader } = Astro.props;
 ---
 
-<section id="vertical_container">
+<section class="vertical_container" id="tumletid">
   <div id="vertical_left">
     <div id="heading">
       <p id="subheading">{subheader}</p>
@@ -44,7 +44,7 @@ const { header, subheader } = Astro.props;
 </section>
 
 <style>
-  #vertical_container {
+  .vertical_container {
     margin-inline: var(--magn);
     margin-bottom: var(--xl-spacing);
   }
@@ -87,7 +87,7 @@ const { header, subheader } = Astro.props;
   }
 
   @media screen and (min-width: 800px) {
-    #vertical_container {
+    .vertical_container {
       margin-inline: var(--desk-magn);
       display: grid;
       grid-template-columns: 1fr 1fr;

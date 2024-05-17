@@ -16,31 +16,6 @@ const data = await response.json();
 const { header, subheader } = Astro.props;
 ---
 
-<div class="heading">
-  <p>{subheader}</p>
-  <h2>{header}</h2>
-</div>
-<Events client:load data={data} />
+<Events client:load data={data} header={header} subheader={subheader} />
 
-<style>
-  .heading {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: left;
-    margin-bottom: var(--m-spacing);
-    text-transform: uppercase;
-    padding-inline: var(--magn);
-  }
-
-  .heading p {
-    color: var(--p-blue);
-  }
-
-  @media screen and (min-width: 800px) {
-    .heading {
-      align-items: center;
-      padding-inline: var(--desk-magn);
-    }
-  }
-</style>
+<style></style>

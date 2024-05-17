@@ -107,12 +107,12 @@ body {
   --desk-magn: 2rem;
 
   --h1-font-size: clamp(3rem, 1.6364rem + 1.4545vw, 3rem);
-  --h2-font-size: clamp(1.5rem, 1.3182rem + 0.7273vw, 2rem);
+  --h2-font-size: clamp(1.125rem, 0.8615rem + 1.0811vw, 1.875rem);
   --h3-font-size: clamp(1.25rem, 1.0682rem + 0.7273vw, 1.75rem);
-  --h4-font-size: clamp(1rem, 0.8182rem + 0.7273vw, 1.5rem);
-  --p-font-size: clamp(0.875rem, 0.7841rem + 0.3636vw, 1.125rem);
-  --p-small-font-size: clamp(0.7rem, 0.62728rem + 0.29088vw, 0.9rem);
-  --p-large-font-size: clamp(0.95rem, 0.8182rem + 0.60088vw, 1.3rem);
+  --h4-font-size: clamp(0.95rem, 0.8182rem + 0.60088vw, 1.3rem);
+  --p-font-size: clamp(0.75rem, 0.7061rem + 0.1802vw, 0.875rem);
+  --p-small-font-size: clamp(0.5625rem, 0.4527rem + 0.4505vw, 0.875rem);
+  --p-large-font-size: clamp(0.75rem, 0.5743rem + 0.7207vw, 1.25rem);
 
   --heading-font: BrandonGrotesque;
   --subheading-font: GilroyLight;
@@ -137,60 +137,95 @@ h2 {
 
 h3 {
   font-family: var(--subheading-font);
+  letter-spacing: 0.075rem;
   font-size: var(--h3-font-size);
   letter-spacing: 0.1rem;
 }
 
 h4 {
   font-family: var(--subheading-font);
+  letter-spacing: 0.075rem;
   font-size: var(--h4-font-size);
-  letter-spacing: 0.1rem;
 }
 
 p {
   font-family: var(--body-font);
   font-size: var(--p-font-size);
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.075rem;
   line-height: 1.6;
   max-width: 70ch;
+}
+span {
+  font-family: var(--body-font);
+  font-size: var(--p-font-size);
+  letter-spacing: 0.075rem;
+  line-height: 1.6;
+  max-width: 70ch;
+  text-transform: uppercase;
 }
 .p {
   font-family: var(--body-font);
   font-size: var(--p-font-size);
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.075rem;
   line-height: 1.6;
 }
 
 a {
   font-family: var(--body-font);
   font-size: var(--p-font-size);
+  letter-spacing: 0.075rem;
   padding-bottom: 4px;
 }
 
 .p-large {
   font-size: var(--p-large-font-size);
+  letter-spacing: 0.075rem;
 }
 
 .p-small {
   font-size: var(--p-small-font-size);
   font-family: var(--subheading-font);
+  letter-spacing: 0.075rem;
 }
 
 /*TICKETS*/
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  margin-bottom: var(--m-spacing);
+  text-transform: uppercase;
+  padding-inline: var(--magn);
+}
+
+.heading p {
+  color: var(--p-blue);
+}
+
+@media screen and (min-width: 800px) {
+  .heading {
+    align-items: center;
+    padding-inline: var(--desk-magn);
+  }
+}
+
 .tickets {
   display: flex;
   flex-direction: column;
   gap: var(--l-spacing);
-  padding: var(--magn);
+  padding-inline: var(--magn);
   margin: auto;
   max-width: 1200px;
+  width: 100%;
 }
 
 .ticket {
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr;
+  grid-template-columns: 2fr 3fr 3fr;
   width: 100%;
-  gap: var(--m-spacing);
+  gap: var(--s-spacing);
 }
 
 .ticket p {
@@ -211,7 +246,7 @@ a {
 }
 
 .ticketsDevide {
-  border-top: solid 2px var(--p-green);
+  border-top: solid 1px var(--p-green);
 }
 
 @media screen and (min-width: 800px) {
@@ -238,6 +273,7 @@ a {
   font-family: var(--body-font);
   border-radius: 40px;
   cursor: pointer;
+  letter-spacing: 0.075rem;
 }
 
 .buttons {
@@ -271,7 +307,7 @@ a {
   grid-template-columns: 1fr 1fr;
   gap: var(--s-spacing);
   padding-block: var(--xs-spacing);
-  margin-bottom: var(--s-spacing);
+  margin-bottom: var(--l-spacing);
 }
 
 .time .button {

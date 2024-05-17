@@ -40,6 +40,7 @@ const { product } = Astro.props;
             <p>{product.address}</p>
             <p>{product.city}</p>
           </div>
+
           <p>Vælg tidspunkt:</p>
           <Time client:load />
           <button class="button buy">Køb nu</button>
@@ -94,6 +95,14 @@ const { product } = Astro.props;
     margin-bottom: var(--xs-spacing);
   }
 
+  .purchase {
+    align-self: end;
+  }
+
+  h3 {
+    text-transform: uppercase;
+  }
+
   @media (min-width: 800px) {
     .productContainer {
       display: flex;
@@ -113,6 +122,7 @@ const { product } = Astro.props;
 
     img {
       max-height: 450px;
+      margin-bottom: 0;
     }
 
     .info {

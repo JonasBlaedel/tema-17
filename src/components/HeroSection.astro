@@ -4,38 +4,45 @@ const { header, subheader } = Astro.props;
 ---
 
 <section class="heroSection">
-  <img src="/img/tumletid1.jpg" alt="Tumletid Hero billede" />
-  <div class="overlay">
-    <div id="text">
-      <h1>{header}</h1>
-      <p>{subheader}</p>
-    </div>
-
-    <a class="button" href="">Deltag i en Tumletid</a>
+  <div id="text">
+    <h4 class="">{subheader}</h4>
+    <a class="button" href="#billetter">Deltag i en Tumletid</a>
   </div>
 </section>
 
 <style>
   a.button {
-    border: 2px solid var(--p-white);
-    background-color: rgba(253, 253, 253, 0.5);
+    border: 1px solid var(--p-white);
+    color: var(--p-white);
+    text-align: center;
+  }
+  a.button:hover {
+    background-color: var(--p-white);
     color: var(--p-black);
   }
 
   .heroSection {
-    position: relative;
-    height: 80%;
-  }
-
-  .overlay {
-    position: absolute;
-    top: 75%;
-    left: 25%;
-    transform: translate(-50%, -50%);
+    background-image: url("/img/tumletid1.jpg");
+    height: 70vh;
+    background-position: top;
+    display: flex;
+    padding: var(--m-spacing);
+    align-items: flex-end;
+    background-size: cover;
   }
 
   #text {
+    display: flex;
+    flex-direction: column;
     color: var(--p-white);
     margin-bottom: var(--l-spacing);
+    gap: var(--s-spacing);
+  }
+
+  @media (min-width: 800px) {
+    .heroSection {
+      height: 90vh;
+      padding: var(--xl-spacing);
+    }
   }
 </style>
