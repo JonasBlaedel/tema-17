@@ -1,15 +1,14 @@
 ---
 import "../style.css";
-
 ---
 
-<div class="navigation" >
+<div class="navigation">
   <h1 class="logo">
     <a href="/">
       <img id="menu-logo" src="../../logo/logo-tumletid.png" alt="Tumletid Logo" />
     </a>
   </h1>
-  <ul id="myLinks">
+  <ul id="menuLinks">
     <li>
       <a id="arrow-text" href=""
         ><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,7 +25,7 @@ import "../style.css";
   </ul>
   <div class="nav-right">
     <a id="cart" href="/cart"><img src="/icons/cart.svg" alt="cart-icon" /></a>
-    <button id="burger" aria-controls="myLinks" aria-label="Menu" aria-expanded="false">
+    <button id="burger" aria-controls="menuLinks" aria-label="Menu" aria-expanded="false">
       <span class="hamburger" aria-hidden="true"></span>
     </button>
   </div>
@@ -49,16 +48,16 @@ import "../style.css";
     top: 0;
     width: 100%;
     z-index: 2;
-    transition:250ms;
+    transition: 250ms;
   }
 
   .navigation:hover {
-    background-color:var(--p-white)
+    background-color: var(--p-white);
   }
-  .navigation:hover #myLinks {
+  .navigation:hover #menuLinks {
     filter: invert(0);
   }
-  .navigation:hover  #menu-logo {
+  .navigation:hover #menu-logo {
     filter: invert(0);
   }
   .navigation:hover .hamburger {
@@ -67,8 +66,6 @@ import "../style.css";
   .navigation:hover #cart {
     filter: invert(0);
   }
-  
-  
 
   .nav-right {
     display: flex;
@@ -125,10 +122,10 @@ import "../style.css";
   }
 
   .pressed .hamburger::before {
-    transform: rotate(90deg) translate(8px, 14px);
+    transform: rotate(90deg) translate(8px, 11px);
   }
   .pressed .hamburger::after {
-    transform: rotate(90deg) translate(-8px, 14px);
+    transform: rotate(90deg) translate(-8px, 11px);
   }
 
   #menu-logo {
@@ -138,7 +135,7 @@ import "../style.css";
     filter: invert(1);
   }
 
-  #myLinks {
+  #menuLinks {
     display: none;
     position: fixed;
     top: 0%;
@@ -151,8 +148,11 @@ import "../style.css";
     z-index: 1;
     filter: invert(1);
   }
+  #menuLinks a {
+    font-size: var(--h2-font-size);
+  }
 
-  #myLinks.shown {
+  #menuLinks.shown {
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -162,7 +162,7 @@ import "../style.css";
     filter: invert(0);
   }
 
-  #myLinks.shown {
+  #menuLinks.shown {
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -195,12 +195,15 @@ import "../style.css";
   .pressed {
     filter: invert(1);
   }
+  .navigation:hover .pressed {
+    filter: invert(0);
+  }
   .scrolled-nav .pressed {
     filter: invert(0);
   }
 
   @media (min-width: 800px) {
-    #myLinks {
+    #menuLinks {
       display: flex;
       background-color: transparent;
       gap: var(--xl-spacing);
@@ -219,15 +222,19 @@ import "../style.css";
       gap: var(--l-spacing);
     }
 
-    .scrolled-nav #myLinks {
+    .scrolled-nav #menuLinks {
       filter: invert(0);
+    }
+
+    #menuLinks a {
+      font-size: var(--p-font-size);
     }
   }
 </style>
 
 <script>
   const btn = document.querySelector("#burger");
-  const menu = document.querySelector("#myLinks");
+  const menu = document.querySelector("#menuLinks");
 
   function toggleMenu() {
     menu.classList.toggle("shown");
