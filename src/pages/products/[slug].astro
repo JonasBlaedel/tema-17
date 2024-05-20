@@ -41,7 +41,7 @@ const { product } = Astro.props;
             <img id="menu-logo" src="../../logo/logo-tumletid.png" alt="Tumletid Logo" />
           </a>
         </h1>
-        <ul id="myLinks">
+        <ul id="menuLinks">
           <li>
             <a id="arrow-text" href=""
               ><svg width="15" height="13" viewBox="0 0 15 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +58,7 @@ const { product } = Astro.props;
         </ul>
         <div class="nav-right">
           <a id="cart" href="/cart"><img src="/icons/cart.svg" alt="cart-icon" /></a>
-          <button id="burger" aria-controls="myLinks" aria-label="Menu" aria-expanded="false">
+          <button id="burger" aria-controls="menuLinks" aria-label="Menu" aria-expanded="false">
             <span class="hamburger" aria-hidden="true"></span>
           </button>
         </div>
@@ -248,7 +248,7 @@ const { product } = Astro.props;
     display: block;
   }
 
-  #myLinks {
+  #menuLinks {
     display: none;
     position: fixed;
     top: 0%;
@@ -261,7 +261,7 @@ const { product } = Astro.props;
     z-index: 1;
   }
 
-  #myLinks.shown {
+  #menuLinks.shown {
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -270,7 +270,7 @@ const { product } = Astro.props;
     gap: var(--l-spacing);
   }
 
-  #myLinks.shown {
+  #menuLinks.shown {
     display: flex;
     flex-direction: column;
     justify-content: end;
@@ -280,7 +280,7 @@ const { product } = Astro.props;
   }
 
   @media (min-width: 800px) {
-    #myLinks {
+    #menuLinks {
       display: flex;
       background-color: transparent;
       gap: var(--xl-spacing);
@@ -303,9 +303,9 @@ const { product } = Astro.props;
 
 <script>
   const btnOne = document.querySelector("#burger");
-  const menuOne = document.querySelector("#myLinks");
+  const menuOne = document.querySelector("#menuLinks");
 
-  function toggleMenu() {
+  function toggleMenuone() {
     menuOne.classList.toggle("shown");
     btnOne.classList.toggle("pressed");
 
@@ -317,5 +317,5 @@ const { product } = Astro.props;
     }
   }
 
-  btnOne.addEventListener("click", toggleMenu);
+  btnOne.addEventListener("click", toggleMenuone);
 </script>
