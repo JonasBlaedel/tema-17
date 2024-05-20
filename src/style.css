@@ -62,8 +62,6 @@ ul {
 
 body {
   min-height: 100vh;
-  /* display: grid;
-  grid-template-rows: auto 1fr auto; */
 }
 
 /*FONTS*/
@@ -220,6 +218,7 @@ a {
   margin-bottom: var(--l-spacing);
   max-width: 1200px;
   width: 100%;
+  scroll-margin-top: 6.25rem;
 }
 
 .ticket {

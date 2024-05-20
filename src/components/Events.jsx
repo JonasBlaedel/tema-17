@@ -5,8 +5,8 @@ function Events(props) {
   const [area, setArea] = useState("");
 
   return (
-    <div className="tickets">
-      <div className="heading" id="billetter">
+    <div className="tickets" id="billetter">
+      <div className="heading">
         <p>{props.subheader}</p>
         <h2>{props.header}</h2>
       </div>
