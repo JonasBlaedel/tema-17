@@ -197,7 +197,6 @@ a {
   align-items: left;
   margin-bottom: var(--m-spacing);
   text-transform: uppercase;
-  padding-inline: var(--magn);
 }
 
 .heading p {

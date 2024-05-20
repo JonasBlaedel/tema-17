@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ButtonFilter from "./ButtonFilter";
 
 function Events(props) {
-  const [area, setArea] = useState("sjaelland");
+  const [area, setArea] = useState("");
 
   return (
     <div className="tickets">
@@ -17,7 +17,7 @@ function Events(props) {
       </div>
       <hr className="ticketsDevide" />
       {props.data
-        .filter((filterRegion) => filterRegion.region === area)
+        .filter((filterRegion) => area === "" || filterRegion.region === area)
         .sort((a, b) => new Date(a.fulldate) - new Date(b.fulldate))
         .map((ticket) => (
           <div className="ticket" key={ticket.id}>

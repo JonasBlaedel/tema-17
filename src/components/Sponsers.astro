@@ -29,10 +29,11 @@ const { header, subheader } = Astro.props;
   }
 
   .sponsers {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--s-spacing);
-    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    gap: var(--xl-spacing);
+    align-items: center;
+    flex-wrap: wrap;
   }
   .sponsers img {
     width: 100px;
@@ -57,13 +58,13 @@ const { header, subheader } = Astro.props;
     }
     .heading {
       align-items: center;
-      padding-inline: var(--desk-magn);
     }
     .sponsers {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
+      display: flex;
+      flex-direction: row;
       gap: var(--xl-spacing);
       align-items: center;
+      flex-wrap: wrap;
     }
   }
 </style>
