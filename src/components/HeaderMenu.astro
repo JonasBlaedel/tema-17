@@ -18,10 +18,10 @@ import "../style.css";
         </svg> bObles.dk</a
       >
     </li>
-    <li><a href="#tumletid">Tumletid</a></li>
-    <li><a href="#goodiebag">Goodiebag</a></li>
-    <li><a href="#tumlemøbler">Tumlemøbler</a></li>
-    <li><a href="#billetter">Tumletidsbilletter</a></li>
+    <li><a class="menuLink" href="#tumletid">Tumletid</a></li>
+    <li><a class="menuLink" href="#goodiebag">Goodiebag</a></li>
+    <li><a class="menuLink" href="#tumlemøbler">Tumlemøbler</a></li>
+    <li><a class="menuLink" href="#billetter">Tumletidsbilletter</a></li>
   </ul>
   <div class="nav-right">
     <a id="cart" href="/cart"><img src="/icons/cart.svg" alt="cart-icon" /></a>
@@ -235,10 +235,19 @@ import "../style.css";
 <script>
   const btn = document.querySelector("#burger");
   const menu = document.querySelector("#menuLinks");
+  const links = document.querySelectorAll(".menuLink");
 
   function toggleMenu() {
     menu.classList.toggle("shown");
     btn.classList.toggle("pressed");
+
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.classList.remove("shown");
+        btn.classList.remove("pressed");
+        document.body.style.overflowY = "auto"; // Ensure scrolling is re-enabled
+      });
+    });
 
     const menuShown = menu.classList.contains("shown");
     if (menuShown) {
