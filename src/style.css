@@ -363,7 +363,7 @@ div.buyTT {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: var(--m-spacing);
+  gap: var(--s-spacing);
 }
 
 .counter {
@@ -381,6 +381,8 @@ button.count {
   border: 1px solid var(--p-green);
   border-radius: 5px;
   cursor: pointer;
+  background-color: transparent;
+  color: var(--p-green);
 }
 
 #numberInput {
@@ -393,6 +395,7 @@ button.count {
   border-radius: 5px;
   border: 1px solid;
   text-align: center;
+  color: var(--p-green);
 }
 
 button.buy {
