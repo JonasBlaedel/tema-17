@@ -9,14 +9,16 @@ function Accordion({ items }) {
 
   return (
     <div className="accordion">
-      {items.map((item, index) => (
-        <div key={index} className={`accordion-item ${activeIndex === index ? "active" : ""}`}>
-          <div className="accordion-header p" onClick={() => toggleAccordion(index)}>
-            <span>{item.heading}</span> <span>{activeIndex === index ? "-" : "+"}</span>
+      {items
+        .sort((a, b) => new Date(a.id) - new Date(b.id))
+        .map((item, index) => (
+          <div key={index} className={`accordion-item ${activeIndex === index ? "active" : ""}`}>
+            <div className="accordion-header p" onClick={() => toggleAccordion(index)}>
+              <span>{item.heading}</span> <span>{activeIndex === index ? "-" : "+"}</span>
+            </div>
+            {activeIndex === index && <div className="accordion-content p">{item.content}</div>}
           </div>
-          {activeIndex === index && <div className="accordion-content p">{item.content}</div>}
-        </div>
-      ))}
+        ))}
     </div>
   );
 }

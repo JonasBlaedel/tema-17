@@ -6,7 +6,7 @@ function Events(props) {
 
   return (
     <div className="tickets">
-      <div class="heading" id="billetter">
+      <div className="heading" id="billetter">
         <p>{props.subheader}</p>
         <h2>{props.header}</h2>
       </div>
