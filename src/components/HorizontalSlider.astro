@@ -15,56 +15,34 @@ const data = await response.json();
 const { header, subheader, filter, background, justify, gap, link } = Astro.props;
 ---
 
-<script>
-  let slideIndex = 0; // Start at the first slide
-
-  function moveSlide(n) {
-    const slides = document.querySelectorAll(".slider-item");
-    const container = document.querySelector(".horizontal-sliderx");
-
-    if (!slides.length) return;
-
-    const slideWidth = (slides[0] as HTMLElement).offsetWidth + parseInt(getComputedStyle(slides[0] as HTMLElement).marginRight);
-
-    slideIndex += n;
-
-    // Boundary checks
-    if (slideIndex >= slides.length) {
-      slideIndex = 0; // Loop back to the first slide
-    } else if (slideIndex < 0) {
-      slideIndex = slides.length - 1; // Loop back to the last slide
-    }
-
-    container.scrollLeft = slideIndex * slideWidth;
-  }
-</script>
-
 <section class="sectionContainer" id={link}>
   <div class="heading-slider">
     <p>{subheader}</p>
     <h2>{header}</h2>
   </div>
   <section class="horizontal-slider-container">
-    <!-- <button onclick="moveSlide(-1); ">Previous</button>
-    <button onclick="moveSlide(1);">Next</button> -->
     <div class=`horizontal-slider ${justify}`>
       {
         data.map((product) => {
           if (product.type === `${filter}`) {
             return (
-              <a href="" class="slider-item">
-                <img src={`/img/${product.img}`} alt={product.title} />
-                <div class={`${background} ${gap}`}>
-                  <p class="product_title">{product.title}</p>
-                  <p class="product_subtitle">{product.subtitle}</p>
-                </div>
-              </a>
+              <div class="slider-item">
+                <a href="" class="">
+                  <img src={`/img/${product.img}`} alt={product.title} />
+                  <div class={`${background} ${gap}`}>
+                    <p class="product_title">{product.title}</p>
+                    <p class="product_subtitle">{product.subtitle}</p>
+                  </div>
+                </a>
+              </div>
             );
           }
         })
       }
     </div>
   </section>
+  <button class="scrollLeft moveSlide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="m15 4l2 2l-6 6l6 6l-2 2l-8-8z"></path></svg></button>
+  <button class="scrollRight moveSlide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="m9.005 4l8 8l-8 8L7 18l6.005-6L7 6z"></path></svg></button>
 </section>
 
 <style>
@@ -72,24 +50,52 @@ const { header, subheader, filter, background, justify, gap, link } = Astro.prop
     margin-inline: var(--magn);
     margin-bottom: var(--l-spacing);
     scroll-margin-top: 6.25rem;
+    position: relative;
   }
 
   .horizontal-slider-container {
     width: 100%;
     overflow-x: auto;
+    white-space: nowrap;
     position: relative;
   }
 
   .horizontal-slider {
     display: flex;
+    flex-direction: row;
     gap: var(--s-spacing);
   }
 
   .slider-item {
     flex-shrink: 0;
     width: calc(65% - (var(--s-spacing) * 2));
-    display: flex;
+    display: inline-block;
     flex-direction: column;
+  }
+
+  .moveSlide {
+    position: absolute;
+    top: 30%;
+    background-color: var(--p-white);
+    border: none;
+    border-radius: 100%;
+    color: var(--p-blue);
+    height: 40px;
+    width: 40px;
+    padding: var(--xs-spacing);
+    transition: 150ms;
+    cursor: pointer;
+  }
+  .moveSlide:hover {
+    background-color: rgba(253, 253, 253, 0.5);
+    color: rgba(2, 79, 191, 0.5);
+  }
+
+  .scrollLeft {
+    left: var(--s-spacing);
+  }
+  .scrollRight {
+    right: var(--s-spacing);
   }
 
   .heading-slider {
@@ -135,5 +141,49 @@ const { header, subheader, filter, background, justify, gap, link } = Astro.prop
     .heading-slider {
       align-items: center;
     }
+    .moveSlide {
+      position: absolute;
+      top: 50%;
+      background-color: var(--p-white);
+      border: none;
+      border-radius: 100%;
+      color: var(--p-blue);
+      height: 40px;
+      width: 40px;
+      padding: var(--xs-spacing);
+      transition: 150ms;
+    }
+    .moveSlide:hover {
+      background-color: rgba(253, 253, 253, 0.5);
+      color: rgba(2, 79, 191, 0.5);
+    }
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const containers = document.querySelectorAll(".sectionContainer");
+
+    containers.forEach((container) => {
+      const scrollRight = container.querySelector(".scrollRight");
+      const scrollLeft = container.querySelector(".scrollLeft");
+      const productListContainer = container.querySelector(".horizontal-slider-container");
+
+      scrollRight.addEventListener("click", function () {
+        productListContainer.scrollBy({
+          top: 0,
+          left: 250,
+          behavior: "smooth",
+        });
+      });
+
+      scrollLeft.addEventListener("click", function () {
+        productListContainer.scrollBy({
+          top: 0,
+          left: -250,
+          behavior: "smooth",
+        });
+      });
+    });
+  });
+</script>
