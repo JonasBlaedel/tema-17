@@ -40,6 +40,8 @@ const { header, subheader } = Astro.props;
     <div id="image_slider">
       {data.map((ttimg) => <img src={`/img/${ttimg.img}`} alt={ttimg.alt} />)}
     </div>
+    <button class="scrollUp moveSlide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="m15 4l2 2l-6 6l6 6l-2 2l-8-8z"></path></svg></button>
+    <button class="scrollDown moveSlide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="m9.005 4l8 8l-8 8L7 18l6.005-6L7 6z"></path></svg></button>
   </div>
 </section>
 
@@ -53,6 +55,9 @@ const { header, subheader } = Astro.props;
   #vertical_left {
     margin-bottom: var(--l-spacing);
   }
+  #vertical_right {
+    position: relative;
+  }
 
   #vertical_left p:not(#subheading) {
     margin-bottom: var(--s-spacing);
@@ -61,6 +66,8 @@ const { header, subheader } = Astro.props;
   #image_slider {
     width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
     display: flex;
     gap: var(--s-spacing);
   }
@@ -87,6 +94,30 @@ const { header, subheader } = Astro.props;
     color: var(--p-blue);
   }
 
+  .moveSlide {
+    position: absolute;
+    top: 50%;
+    right: var(--s-spacing);
+    background-color: var(--p-white);
+    border: none;
+    border-radius: 100%;
+    color: var(--p-blue);
+    height: 40px;
+    width: 40px;
+    padding: var(--xs-spacing);
+    transition: 150ms;
+  }
+  .moveSlide:hover {
+    background-color: rgba(253, 253, 253, 0.5);
+    color: rgba(2, 79, 191, 0.5);
+  }
+  .scrollUp {
+    left: var(--s-spacing);
+  }
+  .scrollDown {
+    right: var(--s-spacing);
+  }
+
   @media screen and (min-width: 800px) {
     .vertical_container {
       margin-inline: var(--desk-magn);
@@ -105,9 +136,39 @@ const { header, subheader } = Astro.props;
     #image_slider {
       position: absolute;
       overflow-y: auto;
+      overflow-x: hidden;
       flex-direction: column;
       width: fit-content;
       height: 100%;
+      white-space: nowrap;
+    }
+
+    .moveSlide {
+      position: absolute;
+      top: 50%;
+      right: var(--s-spacing);
+      background-color: var(--p-white);
+      border: none;
+      border-radius: 100%;
+      color: var(--p-blue);
+      height: 40px;
+      width: 40px;
+      padding: var(--xs-spacing);
+      transition: 150ms;
+    }
+    .moveSlide:hover {
+      background-color: rgba(253, 253, 253, 0.5);
+      color: rgba(2, 79, 191, 0.5);
+    }
+    .scrollUp {
+      margin-bottom: var(--xl-spacing);
+      transform: rotate(90deg);
+      left: auto;
+    }
+
+    .scrollDown {
+      margin-top: var(--xl-spacing);
+      transform: rotate(90deg);
     }
 
     #image_slider img {
@@ -117,3 +178,29 @@ const { header, subheader } = Astro.props;
     }
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const scrollUp = document.querySelector(".scrollUp");
+    const scrollDown = document.querySelector(".scrollDown");
+    const imgContainer = document.querySelector("#image_slider");
+
+    scrollUp.addEventListener("click", function () {
+      console.log("clicked");
+      imgContainer.scrollBy({
+        top: -250,
+        left: -250,
+        behavior: "smooth",
+      });
+    });
+
+    scrollDown.addEventListener("click", function () {
+      console.log("clicked");
+      imgContainer.scrollBy({
+        top: 250,
+        left: 250,
+        behavior: "smooth",
+      });
+    });
+  });
+</script>
