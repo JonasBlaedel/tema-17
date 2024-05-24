@@ -1,0 +1,111 @@
+.productContainer {
+  position: relative;
+}
+
+.form {
+  margin-inline: var(--magn);
+}
+.img_tumletid {
+  margin-bottom: var(--m-spacing);
+}
+
+.title {
+  text-transform: uppercase;
+  margin-bottom: var(--s-spacing);
+}
+
+.location h3 {
+  margin-bottom: var(--xs-spacing);
+}
+
+.store {
+  margin-bottom: var(--s-spacing);
+}
+
+.info {
+  margin: var(--magn);
+}
+.info p {
+  margin-bottom: var(--s-spacing);
+}
+
+.purchase {
+  align-self: end;
+}
+
+h3 {
+  text-transform: uppercase;
+}
+
+.hidden {
+  display: none;
+}
+
+.cart {
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  z-index: 10;
+  background-color: var(--p-white);
+  border: 1px solid rgba(17, 17, 17, 0.2);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  gap: var(--m-spacing);
+}
+
+.items {
+  position: relative;
+  padding: var(--m-spacing);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--s-spacing);
+}
+
+a.visitCart {
+  width: fit-content;
+  padding-inline: var(--s-spacing);
+  padding-block: var(--xs-spacing);
+  background-color: var(--p-green);
+  color: var(--p-white);
+  border-radius: 25px;
+}
+
+.close {
+  position: absolute;
+  top: var(--xs-spacing);
+  right: var(--s-spacing);
+  background-color: transparent;
+  border: none;
+}
+
+@media (min-width: 800px) {
+  .productContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--l-spacing);
+    padding: var(--magn);
+    margin: auto;
+    max-width: 1200px;
+  }
+
+  .productInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--xl-spacing);
+    align-items: center;
+  }
+
+  img {
+    max-height: 450px;
+    margin-bottom: 0;
+  }
+
+  .info {
+    margin: auto;
+    padding: var(--desk-magn);
+  }
+}
