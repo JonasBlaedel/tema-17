@@ -44,7 +44,7 @@ const CartItem = () => {
             <p>{ticket.price * ticket.quantity} kr</p>
           </div>
           <button className="remove-button" onClick={() => removeFromCart(index)}>
-            Fjern fra kurv
+            Fjern
           </button>
         </div>
       ))}

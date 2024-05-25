@@ -211,3 +211,22 @@ import "../style.css";
     }
   }
 </style>
+
+<script>
+  const btnCart = document.querySelector("#burger");
+  const menuCart = document.querySelector("#menuLinks");
+
+  function toggleMenuCart() {
+    menuCart.classList.toggle("shown");
+    btnCart.classList.toggle("pressed");
+
+    const menuShown = menuCart.classList.contains("shown");
+    if (menuShown) {
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+  }
+
+  btnCart.addEventListener("click", toggleMenuCart);
+</script>
