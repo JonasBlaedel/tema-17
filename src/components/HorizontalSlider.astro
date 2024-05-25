@@ -86,10 +86,6 @@ const { header, subheader, filter, background, justify, gap, link } = Astro.prop
     transition: 150ms;
     cursor: pointer;
   }
-  .moveSlide:hover {
-    background-color: rgba(253, 253, 253, 0.5);
-    color: rgba(2, 79, 191, 0.5);
-  }
 
   .scrollLeft {
     left: var(--s-spacing);
@@ -136,6 +132,10 @@ const { header, subheader, filter, background, justify, gap, link } = Astro.prop
     .sectionContainer {
       margin-inline: var(--desk-magn);
       margin-bottom: var(--l-spacing);
+    }
+    .moveSlide:hover {
+      background-color: rgba(253, 253, 253, 0.5);
+      color: rgba(2, 79, 191, 0.5);
     }
 
     .heading-slider {

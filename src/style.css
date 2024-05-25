@@ -416,3 +416,50 @@ button.buy:hover {
   background-color: var(--p-green);
   color: var(--p-white);
 }
+
+/*Kurv*/
+
+div.cart-item-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: var(--m-spacing);
+  align-items: center;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+  gap: var(--xl-spacing);
+  margin-block: var(--m-spacing);
+  max-width: 50rem;
+  width: 100%;
+}
+
+button.remove-button {
+  width: fit-content;
+  height: fit-content;
+  font-family: var(--body-font);
+  font-size: var(--p-font-size);
+  padding-inline: var(--s-spacing);
+  padding-block: var(--xs-spacing);
+  cursor: pointer;
+}
+
+.cart-button {
+  width: fit-content;
+  height: fit-content;
+  font-family: var(--body-font);
+  font-size: var(--p-font-size);
+  padding-inline: var(--s-spacing);
+  padding-block: var(--xs-spacing);
+  cursor: pointer;
+  margin-right: var(--s-spacing);
+}
+
+.button-checkout {
+  background-color: var(--p-green);
+  color: var(--p-white);
+  border: 1px solid var(--p-green);
+}

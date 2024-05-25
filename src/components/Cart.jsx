@@ -13,19 +13,17 @@ function Cart({ tickets, showCart, setShowCart }) {
           &#10005;
         </button>
         <p className="p-small">Produkter tilføjet til kurven</p>
-        {tickets &&
-          tickets.map((ticket, index) => (
-            <div className="item">
-              <p>{`${ticket.quantity}x`}</p>
-              <div>
-                <p>{`bObles Tumletid i ${ticket.store} ${ticket.city}`}</p>
-                <p>{`${ticket.date} ${ticket.month} kl. ${ticket.active}`}</p>
-              </div>
-              <p>{ticket.price * ticket.quantity} kr</p>
-            </div>
-          ))}
 
-        <a href="" className="visitCart">
+        <div className="item">
+          <p>{`${tickets.quantity}x`}</p>
+          <div>
+            <p>{`bObles Tumletid i ${tickets.store} ${tickets.city}`}</p>
+            <p>{`${tickets.date} ${tickets.month} kl. ${tickets.active}`}</p>
+          </div>
+          <p>{tickets.price * tickets.quantity} kr</p>
+        </div>
+
+        <a href="/cart" className="visitCart">
           Gå til kurven
         </a>
       </div>

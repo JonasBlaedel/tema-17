@@ -9,25 +9,41 @@ function ProductInfo({ product }) {
   const [value, setValue] = useState(0);
   const [showCart, setShowCart] = useState(false);
   const [active, setActive] = useState("10:00");
+  const [tickets, setTickets] = useState();
+
+  let newTicket = {
+    date: product.date,
+    month: product.month,
+    location: product.location,
+    quantity: value + 1,
+    store: product.store,
+    price: product.price,
+    active: active,
+    city: product.city,
+  };
 
   const cartData = () => {
-    console.log("begge", tickets);
+    setTickets(newTicket);
+
+    const existingTickets = JSON.parse(localStorage.getItem("tickets")) || [];
+    const updatedTickets = [newTicket, ...existingTickets];
+
+    localStorage.setItem("tickets", JSON.stringify(updatedTickets));
+
     setShowCart(!showCart);
   };
 
-  const totalValue = value + 1;
-
-  const tickets = [
-    {
-      date: product.date,
-      month: product.month,
-      city: product.city,
-      quantity: totalValue,
-      store: product.store,
-      price: product.price,
-      active: active,
-    },
-  ];
+  //   const tickets = [
+  //     {
+  //       date: product.date,
+  //       month: product.month,
+  //       city: product.city,
+  //       quantity: totalValue,
+  //       store: product.store,
+  //       price: product.price,
+  //       active: active,
+  //     },
+  //   ];
 
   return (
     <section className="productContainer">
