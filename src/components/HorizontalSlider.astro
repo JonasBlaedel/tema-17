@@ -27,13 +27,11 @@ const { header, subheader, filter, background, justify, gap, link } = Astro.prop
           if (product.type === `${filter}`) {
             return (
               <div class="slider-item">
-                <a href="" class="">
-                  <img src={`/img/${product.img}`} alt={product.title} />
-                  <div class={`${background} ${gap}`}>
-                    <p class="product_title">{product.title}</p>
-                    <p class="product_subtitle">{product.subtitle}</p>
-                  </div>
-                </a>
+                <img src={`/img/${product.img}`} alt={product.title} />
+                <div class={`${background} ${gap}`}>
+                  <p class="product_title">{product.title}</p>
+                  <p class="product_subtitle">{product.subtitle}</p>
+                </div>
               </div>
             );
           }
@@ -46,10 +44,9 @@ const { header, subheader, filter, background, justify, gap, link } = Astro.prop
 </section>
 
 <style>
-
-.horizontal-slider-container::-webkit-scrollbar {
-  display: none;
-}
+  .horizontal-slider-container::-webkit-scrollbar {
+    display: none;
+  }
   .sectionContainer {
     margin-inline: var(--magn);
     margin-bottom: var(--l-spacing);

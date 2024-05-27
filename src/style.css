@@ -279,6 +279,7 @@ button {
   border-radius: 40px;
   cursor: pointer;
   letter-spacing: 0.075rem;
+  transition: 150ms;
 }
 
 .buttons {

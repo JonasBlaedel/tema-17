@@ -51,8 +51,6 @@ import "../style.css";
     transition: 250ms;
   }
 
-  
-
   .nav-right {
     display: flex;
     flex-direction: row;
@@ -68,6 +66,7 @@ import "../style.css";
     min-height: 44px;
     cursor: pointer;
     z-index: 2;
+    filter: invert(1);
   }
 
   #cart {
@@ -81,7 +80,6 @@ import "../style.css";
     margin-top: 8px;
     position: relative;
     display: block;
-    filter: invert(1);
   }
 
   .hamburger::before,
@@ -154,14 +152,14 @@ import "../style.css";
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   }
   .scrolled-nav #menu-logo {
-    filter: invert(0);
+    filter: initial;
   }
   .scrolled-nav #cart {
-    filter: invert(0);
+    filter: initial;
   }
 
-  .scrolled-nav .hamburger {
-    filter: invert(0);
+  .scrolled-nav #burger {
+    filter: initial;
   }
 
   .scrolled-nav .hamburger::before,
@@ -172,7 +170,7 @@ import "../style.css";
   .pressed {
     filter: invert(1);
   }
-  
+
   .scrolled-nav .pressed {
     filter: invert(0);
   }
@@ -186,23 +184,25 @@ import "../style.css";
       position: relative;
       padding: var(--xs-spacing);
       box-shadow: none;
+      filter: invert(1);
     }
 
     .navigation:hover {
-    background-color: var(--p-white);
-  }
-  .navigation:hover #menuLinks {
-    filter: invert(0);
-  }
-  .navigation:hover #menu-logo {
-    filter: invert(0);
-  }
-  .navigation:hover .hamburger {
-    filter: invert(0);
-  }
-  .navigation:hover #cart {
-    filter: invert(0);
-  }
+      background-color: var(--p-white);
+    }
+    .navigation:hover #menuLinks li {
+      filter: invert(1);
+    }
+    .navigation:hover .logo a #menu-logo {
+      filter: initial;
+    }
+    .navigation:hover #cart {
+      filter: initial;
+    }
+
+    .scrolled-nav:hover #menuLinks li {
+      filter: initial;
+    }
 
     button#burger {
       display: none;
@@ -214,7 +214,7 @@ import "../style.css";
     }
 
     .scrolled-nav #menuLinks {
-      filter: invert(0);
+      filter: initial;
     }
 
     #menuLinks a {
@@ -260,6 +260,4 @@ import "../style.css";
       topnav.classList.remove("scrolled-nav");
     }
   });
-
-  
 </script>
