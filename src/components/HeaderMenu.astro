@@ -51,21 +51,7 @@ import "../style.css";
     transition: 250ms;
   }
 
-  .navigation:hover {
-    background-color: var(--p-white);
-  }
-  .navigation:hover #menuLinks {
-    filter: invert(0);
-  }
-  .navigation:hover #menu-logo {
-    filter: invert(0);
-  }
-  .navigation:hover .hamburger {
-    filter: invert(0);
-  }
-  .navigation:hover #cart {
-    filter: invert(0);
-  }
+  
 
   .nav-right {
     display: flex;
@@ -186,9 +172,7 @@ import "../style.css";
   .pressed {
     filter: invert(1);
   }
-  .navigation:hover .pressed {
-    filter: invert(0);
-  }
+  
   .scrolled-nav .pressed {
     filter: invert(0);
   }
@@ -203,6 +187,22 @@ import "../style.css";
       padding: var(--xs-spacing);
       box-shadow: none;
     }
+
+    .navigation:hover {
+    background-color: var(--p-white);
+  }
+  .navigation:hover #menuLinks {
+    filter: invert(0);
+  }
+  .navigation:hover #menu-logo {
+    filter: invert(0);
+  }
+  .navigation:hover .hamburger {
+    filter: invert(0);
+  }
+  .navigation:hover #cart {
+    filter: invert(0);
+  }
 
     button#burger {
       display: none;
@@ -260,4 +260,6 @@ import "../style.css";
       topnav.classList.remove("scrolled-nav");
     }
   });
+
+  
 </script>

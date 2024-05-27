@@ -46,6 +46,10 @@ const { header, subheader } = Astro.props;
 </section>
 
 <style>
+#image_slider::-webkit-scrollbar {
+  display: none;
+}
+
   .vertical_container {
     margin-inline: var(--magn);
     margin-bottom: var(--l-spacing);
@@ -96,7 +100,7 @@ const { header, subheader } = Astro.props;
 
   .moveSlide {
     position: absolute;
-    top: 50%;
+    top: 20%;
     right: var(--s-spacing);
     background-color: var(--p-white);
     border: none;

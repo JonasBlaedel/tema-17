@@ -176,6 +176,10 @@ a {
   padding-bottom: 4px;
 }
 
+button {
+  letter-spacing: 0.075rem;
+}
+
 .p-large {
   font-size: var(--p-large-font-size);
   letter-spacing: 0.075rem;
@@ -212,7 +216,6 @@ a {
 .tickets {
   display: flex;
   flex-direction: column;
-  gap: var(--l-spacing);
   padding-inline: var(--magn);
   margin: auto;
   margin-bottom: var(--l-spacing);
@@ -226,6 +229,7 @@ a {
   grid-template-columns: 2fr 3fr 3fr;
   width: 100%;
   gap: var(--s-spacing);
+  margin-bottom: var(--l-spacing);
 }
 
 .ticket p {
@@ -246,6 +250,7 @@ a {
 }
 
 .ticketsDevide {
+  margin-block: var(--l-spacing);
   border-top: solid 1px var(--p-green);
 }
 
@@ -279,7 +284,7 @@ a {
 .buttons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--m-spacing);
+  gap: var(--xs-spacing);
 }
 
 .buttons .button {
@@ -411,6 +416,7 @@ button.buy {
   border: 1px solid var(--p-green);
   border-radius: 5px;
   cursor: pointer;
+  text-transform: uppercase;
 }
 button.buy:hover {
   background-color: var(--p-green);
@@ -445,6 +451,9 @@ button.remove-button {
   padding-inline: var(--s-spacing);
   padding-block: var(--xs-spacing);
   cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 1px solid var(--p-black);
 }
 
 .cart-button {
@@ -456,6 +465,9 @@ button.remove-button {
   padding-block: var(--xs-spacing);
   cursor: pointer;
   margin-right: var(--s-spacing);
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 1px solid var(--p-black);
 }
 
 .button-checkout {
@@ -475,11 +487,11 @@ button.remove-button {
 
   .cart-item {
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-columns: 1fr 8fr 3fr;
     align-items: center;
     gap: var(--xl-spacing);
     margin-block: var(--m-spacing);
-    max-width: 50rem;
+    max-width: 40rem;
     width: 100%;
   }
 
@@ -492,4 +504,11 @@ button.remove-button {
     padding-block: var(--xs-spacing);
     cursor: pointer;
   }
+}
+.hidden {
+  display: none;
+}
+
+.shown {
+  display: block;
 }

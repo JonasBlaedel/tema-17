@@ -23,7 +23,8 @@ function Events(props) {
           <div className="ticket" key={ticket.id}>
             <div className="date">
               <p className="p-large">{`${ticket.date}. ${ticket.month}`}</p>
-              <p className="p-small">{ticket.time}</p>
+              <p className="p-small">{ticket.time1}</p>
+              <p className="p-small">{ticket.time2}</p>
             </div>
             <div className="location">
               <p className="p-large">{ticket.city}</p>
