@@ -48,7 +48,7 @@ const CartItem = () => {
           </button>
         </div>
       ))}
-      <p>Total: {totalPrice} kr</p>
+      <p>TOTAL: {totalPrice} DKK</p>
       <button className="cart-button" onClick={clearCart}>
         Ryd Kurv
       </button>
