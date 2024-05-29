@@ -38,10 +38,10 @@ const CartItem = () => {
           <div className="cart-item">
             <p>{`${ticket.quantity}x`}</p>
             <div>
-              <p>{`bObles Tumletid i ${ticket.store} ${ticket.city}`}</p>
-              <p>{`${ticket.date} ${ticket.month} kl. ${ticket.active}`}</p>
+              <p className="uppercase">{`bObles Tumletid i ${ticket.store} ${ticket.city}`}</p>
+              <p className="uppercase">{`${ticket.date}. ${ticket.month} kl. ${ticket.active}`}</p>
             </div>
-            <p>{ticket.price * ticket.quantity} kr</p>
+            <p>{ticket.price * ticket.quantity} DKK</p>
           </div>
           <button className="remove-button" onClick={() => removeFromCart(index)}>
             Fjern

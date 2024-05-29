@@ -513,3 +513,7 @@ button.remove-button {
 .shown {
   display: block;
 }
+
+.uppercase {
+  text-transform: uppercase;
+}
