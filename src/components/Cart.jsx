@@ -17,10 +17,10 @@ function Cart({ tickets, showCart, setShowCart }) {
         <div className="item">
           <p>{`${tickets.quantity}x`}</p>
           <div>
-            <p>{`bObles Tumletid i ${tickets.store} ${tickets.city}`}</p>
-            <p>{`${tickets.date} ${tickets.month} kl. ${tickets.active}`}</p>
+            <p className="uppercase">{`bObles Tumletid i ${tickets.store} ${tickets.city}`}</p>
+            <p className="uppercase">{`${tickets.date} ${tickets.month} kl. ${tickets.active}`}</p>
           </div>
-          <p>{tickets.price * tickets.quantity} kr</p>
+          <p>{tickets.price * tickets.quantity} DKK</p>
         </div>
 
         <a href="/cart" className="visitCart">

@@ -22,7 +22,7 @@ const CartItem = () => {
     updatedTickets.splice(index, 1);
     setTickets(updatedTickets);
     localStorage.setItem("tickets", JSON.stringify(updatedTickets));
-    calculateTotalPrice(updatedTickets);
+    calcTotalPrice(updatedTickets);
   };
 
   const clearCart = () => {
@@ -48,11 +48,15 @@ const CartItem = () => {
           </button>
         </div>
       ))}
-      <p>TOTAL: {totalPrice} DKK</p>
-      <button className="cart-button" onClick={clearCart}>
-        Ryd Kurv
-      </button>
-      <button className="cart-button button-checkout">Gå til Checkout</button>
+      <div className="total">
+        <p className="p-large bold">TOTAL: {totalPrice} DKK</p>
+        <div>
+          <button className="cart-button" onClick={clearCart}>
+            Ryd Kurv
+          </button>
+          <button className="cart-button button-checkout">Gå til Checkout</button>
+        </div>
+      </div>
     </section>
   );
 };
